@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Guía completa sobre diseño web moderno y responsive" />
+    <meta name="author" content="María García" />
+    <title>El Futuro del Diseño Web | Blog de Desarrollo</title>
+
+    <!-- Fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Script para modo oscuro -->
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark-mode');
+            const btn = document.getElementById('darkModeBtn');
+            btn.textContent = document.documentElement.classList.contains('dark-mode')
+                ? 'Modo Claro'
+                : 'Modo Oscuro';
+        }
+    </script>
+
+    <style>
+        /* Básico para demostración */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background: #fff;
+            color: #222;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode body {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        header.site-header {
+            background: #004080;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .site-title {
+            margin: 0;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        nav.main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        nav.main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a:focus {
+            color: #ffd700;
+            outline: none;
+        }
+
+        button#darkModeBtn {
+            background: #ffd700;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 5px;
+            margin-left: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button#darkModeBtn:hover,
+        button#darkModeBtn:focus {
+            background: #ffec70;
+            outline: none;
+        }
+
+        /* Layout de página */
+        .page-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        main.main-content {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .dark-mode main.main-content {
+            background: #1e1e1e;
+        }
+
+        article.article-header h1.article-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+            color: #004080;
+        }
+
+        .dark-mode article.article-header h1.article-title {
+            color: #9acdff;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .dark-mode .article-meta {
+            color: #bbb;
+        }
+
+        figure.featured-image {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        figure.featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        figure.featured-image:hover img,
+        figure.featured-image:focus-within img {
+            transform: scale(1.05);
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: #555;
+            padding: 0.5rem 1rem;
+            background: #eaeaea;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .dark-mode figcaption {
+            background: #2a2a2a;
+            color: #ccc;
+        }
+
+        .article-content p.lead {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            color: #004080;
+            margin-top: 2rem;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 0.25rem;
+        }
+
+        .dark-mode h2 {
+            color: #9acdff;
+            border-color: #9acdff;
+        }
+
+        ol.trend-list,
+        ul {
+            margin-left: 1.2rem;
+        }
+
+        ol.trend-list li {
+            margin-bottom: 1rem;
+        }
+
+        blockquote.quote {
+            margin: 2rem 0;
+            padding: 1rem 1.5rem;
+            border-left: 5px solid #004080;
+            background: #f0f8ff;
+            font-style: italic;
+            color: #333;
+        }
+
+        .dark-mode blockquote.quote {
+            background: #00264d;
+            color: #cdd9f2;
+            border-left-color: #9acdff;
+        }
+
+        footer.article-footer .tags {
+            margin-top: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #004080;
+            color: white;
+            border-radius: 3px;
+            padding: 0.2rem 0.6rem;
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .dark-mode .tag {
+            background: #9acdff;
+            color: #003366;
+        }
+
+        aside.sidebar {
+            background: #f4f4f4;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+        }
+
+        .dark-mode aside.sidebar {
+            background: #222;
+        }
+
+        .widget-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #004080;
+        }
+
+        .dark-mode .widget-title {
+            color: #9acdff;
+        }
+
+        ul.related-posts,
+        ul.social-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        ul.related-posts li,
+        ul.social-links li {
+            margin-bottom: 1rem;
+        }
+
+        ul.related-posts a,
+        ul.social-links a {
+            color: #004080;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        ul.related-posts a:hover,
+        ul.related-posts a:focus,
+        ul.social-links a:hover,
+        ul.social-links a:focus {
+            color: #ffd700;
+            outline: none;
+        }
+
+        .author-avatar {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #004080;
+        }
+
+        .dark-mode .author-avatar {
+            border-color: #9acdff;
+        }
+
+        .author-bio h4 {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        footer.site-footer {
+            background: #004080;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .page-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            nav.main-nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            button#darkModeBtn {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header del sitio -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <h1 class="site-title">DevBlog</h1>
+            <nav class="main-nav" role="navigation" aria-label="Menú principal">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#articulos">Artículos</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button id="darkModeBtn" aria-pressed="false" onclick="toggleDarkMode()">Modo Oscuro</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="page-container">
+        <!-- Contenido principal -->
+        <main class="main-content" role="main" tabindex="-1">
+            <!-- Artículo -->
+            <article class="article" aria-labelledby="article-title">
+                <!-- Header del artículo -->
+                <header class="article-header">
+                    <h1 id="article-title" class="article-title">El Futuro del Diseño Web: Tendencias 2025</h1>
+                    <div class="article-meta">
+                        <span class="author">Por <strong>María García</strong></span> |
+                        <time datetime="2025-11-25" class="date">25 de Noviembre, 2025</time> |
+                        <span class="reading-time" aria-label="Tiempo estimado de lectura">5 min</span>
+                    </div>
+                </header>
+
+                <!-- Imagen destacada -->
+                <figure class="featured-image" tabindex="0">
+                    <img
+                        src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop"
+                        alt="Pantalla con diseño web moderno y elementos gráficos interactivos"
+                    />
+                    <figcaption>El diseño web evoluciona constantemente con nuevas tecnologías</figcaption>
+                </figure>
+
+                <!-- Contenido del artículo -->
+                <section class="article-content">
+                    <p class="lead">
+                        El diseño web ha evolucionado dramáticamente en los últimos años, pasando de páginas estáticas a experiencias interactivas y dinámicas que se adaptan a cualquier dispositivo.
+                    </p>
+
+                    <p>
+                        En este artículo exploraremos las tendencias más importantes que están definiendo el futuro del diseño web en 2025. Desde nuevas tecnologías hasta cambios en las expectativas de los usuarios, cubriremos todo lo que necesitas saber para mantener tus proyectos al día.
+                    </p>
+
+                    <h2>Tendencias Principales</h2>
+                    <p>Las siguientes tendencias están transformando la manera en que diseñamos y desarrollamos sitios web:</p>
+                    <ol class="trend-list" aria-label="Lista de tendencias principales">
+                        <li>
+                            <strong>Diseño Responsive Avanzado:</strong> Ya no es suficiente con que un sitio se vea bien en móvil y desktop. Ahora debemos considerar tablets, smartwatches y pantallas ultra anchas.
+                        </li>
+                        <li>
+                            <strong>Dark Mode:</strong> Los usuarios esperan poder cambiar entre modo claro y oscuro según sus preferencias.
+                        </li>
+                        <li>
+                            <strong>Micro-animaciones:</strong> Pequeñas animaciones que mejoran la experiencia del usuario sin distraer.
+                        </li>
+                        <li>
+                            <strong>Minimalismo con Propósito:</strong> Diseños limpios que priorizan la funcionalidad y la velocidad.
+                        </li>
+                        <li>
+                            <strong>Accesibilidad Primero:</strong> Diseñar pensando en todos los usuarios desde el inicio, no como un añadido posterior.
+                        </li>
+                    </ol>
+
+                    <h2>La Importancia del Performance</h2>
+                    <p>
+                        El rendimiento ya no es opcional. Los usuarios esperan que las páginas carguen en menos de 3 segundos, y Google lo considera un factor crucial para el SEO.
+                    </p>
+
+                    <blockquote class="quote" aria-label="Cita destacada sobre diseño">
+                        <p>
+                            "El buen diseño es tan poco diseño como sea posible. Un buen diseño es innovador, hace útil un producto, es estético y comprensible."
+                        </p>
+                        <footer>— Dieter Rams, Diseñador Industrial</footer>
+                    </blockquote>
+
+                    <p>Para lograr un rendimiento óptimo, debemos considerar varios aspectos:</p>
+                    <ul aria-label="Lista de consideraciones para optimizar rendimiento">
+                        <li>Optimización de imágenes (WebP, AVIF)</li>
+                        <li>Lazy loading de recursos</li>
+                        <li>Minimización de CSS y JavaScript</li>
+                        <li>Uso de CDNs para recursos estáticos</li>
+                        <li>Server-side rendering cuando sea apropiado</li>
+                    </ul>
+
+                    <h2>Herramientas Esenciales</h2>
+                    <p>Las herramientas que uses pueden marcar la diferencia en tu flujo de trabajo. Aquí están las que considero indispensables:</p>
+                    <ul>
+                        <li><strong>Figma:</strong> Para diseño UI/UX colaborativo</li>
+                        <li><strong>VS Code:</strong> Editor de código versátil y potente</li>
+                        <li><strong>Chrome DevTools:</strong> Debugging y optimización</li>
+                        <li><strong>Lighthouse:</strong> Auditoría de performance</li>
+                    </ul>
+
+                    <h2>Conclusión</h2>
+                    <p>
+                        El diseño web continuará evolucionando, pero los principios fundamentales permanecen: crear experiencias que sean útiles, accesibles y agradables para todos los usuarios. Mantente actualizado, experimenta con nuevas tecnologías, pero nunca olvides que el usuario está en el centro de todo lo que hacemos.
+                    </p>
+
+                    <p>¿Qué tendencias crees que dominarán el 2025? Comparte tus pensamientos en los comentarios.</p>
+                </section>
+
+                <!-- Footer del artículo -->
+                <footer class="article-footer" aria-label="Etiquetas del artículo">
+                    <div class="tags">
+                        <span class="tag" tabindex="0">Diseño Web</span>
+                        <span class="tag" tabindex="0">Desarrollo</span>
+                        <span class="tag" tabindex="0">Tendencias</span>
+                        <span class="tag" tabindex="0">UX/UI</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" role="complementary" aria-label="Barra lateral con artículos relacionados y sobre el autor">
+            <section class="widget related-posts-widget">
+                <h3 class="widget-title">Artículos Relacionados</h3>
+                <ul class="related-posts">
+                    <li>
+                        <a href="#" aria-describedby="post-date-1">
+                            <h4>CSS Grid vs Flexbox: Cuándo Usar Cada Uno</h4>
+                            <time id="post-date-1" datetime="2025-11-20">20 Nov 2025</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-describedby="post-date-2">
+                            <h4>Optimización de Imágenes para la Web</h4>
+                            <time id="post-date-2" datetime="2025-11-18">18 Nov 2025</time>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-describedby="post-date-3">
+                            <h4>Guía Completa de Accesibilidad Web</h4>
+                            <time id="post-date-3" datetime="2025-11-15">15 Nov 2025</time>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="widget author-bio" aria-label="Información sobre el autor">
+                <h3 class="widget-title">Sobre el Autor</h3>
+                <img src="https://i.postimg.cc/wT5d4YhK/ft-1.jpg" alt="Foto de Maycol Robin Quispe Calani, autora del blog" class="author-avatar" />
+                <h4>Maycol Robin Quispe Calani</h4>
+                <h4>Ingeniero de Sistemas</h4>
+                <p>Desarrollador frontend apasionado por crear experiencias web modernas y accesibles. +5 años de experiencia en diseño y desarrollo web.</p>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Twitter de María García">Twitter</a></li>
+                    <li><a href="#" aria-label="GitHub de María García">GitHub</a></li>
+                    <li><a href="#" aria-label="LinkedIn de María García">LinkedIn</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Footer del sitio -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 DevBlog. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
